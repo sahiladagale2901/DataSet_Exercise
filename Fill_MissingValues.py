@@ -32,7 +32,7 @@ df['age_median']=df['age'].fillna(df['age'].median())
 
 # if data is Categorical
 '''
-# 2: Mode Value Imputation
+# 3: Mode Value Imputation
 '''
 
 print(df['embarked'].unique())
