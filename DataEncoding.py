@@ -31,3 +31,26 @@ print(arr)
 
 dataFrame = pd.concat([df, encoder_df], axis=1)
 print(dataFrame)
+
+######################################################################################################################
+'''
+Label Encoding and Ordinal Encoding
+
+Label Encoding- involves assigning a unique numerical label to each category in the variable.
+
+Red: 1
+Green: 2
+Blue: 3
+'''
+
+print("#########################" * 5)
+print(df)
+
+from sklearn.preprocessing import LabelEncoder
+
+lbl_encoder = LabelEncoder()
+
+df_label_encoder = lbl_encoder.fit_transform(df[['color']])
+print(df_label_encoder)
+
+print(lbl_encoder.transform([['red']]))
