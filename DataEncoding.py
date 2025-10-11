@@ -34,13 +34,14 @@ print(dataFrame)
 
 ######################################################################################################################
 '''
-Label Encoding and Ordinal Encoding
 
 Label Encoding- involves assigning a unique numerical label to each category in the variable.
 
 Red: 1
 Green: 2
 Blue: 3
+
+But here Machine thinks blue>green>red on the basics of values assigned.
 '''
 
 print("#########################" * 5)
@@ -54,3 +55,28 @@ df_label_encoder = lbl_encoder.fit_transform(df[['color']])
 print(df_label_encoder)
 
 print(lbl_encoder.transform([['red']]))
+######################################################################################################################
+'''
+
+Ordinal Encoding- Categorical data have intrinsic order and ranking. assigned unique value based on the order
+
+example:
+highSchool: 1
+college: 2
+UG: 3
+PG:4
+'''
+
+from sklearn.preprocessing import OrdinalEncoder
+
+df = pd.DataFrame({
+    'size': ['small', 'medium', 'large', 'small', 'large', 'medium']
+})
+
+## create instance
+encoder = OrdinalEncoder(categories=[['small', 'medium', 'large']])
+encoder_ordinal = encoder.fit_transform(df[['size']])
+print(encoder_ordinal)
+
+print(encoder.transform([['small']]))
+print(encoder.transform([['large']]))
