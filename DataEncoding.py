@@ -66,7 +66,7 @@ college: 2
 UG: 3
 PG:4
 '''
-
+print("#########################" * 5)
 from sklearn.preprocessing import OrdinalEncoder
 
 df = pd.DataFrame({
@@ -80,3 +80,23 @@ print(encoder_ordinal)
 
 print(encoder.transform([['small']]))
 print(encoder.transform([['large']]))
+######################################################################################################################
+'''
+
+Target Guided Ordinal Encoding- Categorical variable based on the their relationship with target variable.
+                                Useful when - Categorical variable with large number of unique categories
+
+Replace each category in the categorical variable with the numerical values based on
+the mean median of the target variable of the category
+'''
+print("#########################" * 5)
+
+df = pd.DataFrame({
+    'city': ['New York', 'London', 'Paris', 'Tokyo', 'New York', 'Tokyo'],
+    'price': [200, 150, 300, 450, 250, 180]
+})
+
+mean_price = df.groupby('city')['price'].mean().to_dict()
+print(mean_price)
+df['city_encoded']=df['city'].map(mean_price)
+print(df)
