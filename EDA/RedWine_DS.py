@@ -42,3 +42,22 @@ plt.figure(figsize=(10, 10))
 sns.heatmap(df.corr(), annot=True)
 # Display the plot
 plt.show()
+
+## Visualization
+# Conclusion -> Imbalance DataSet
+print(df.quality.value_counts())
+
+df['quality'].value_counts().plot(kind='bar')
+plt.show()
+
+## Univariate, Bivariate and Multivariate analysis
+# sns.pairplot(df)
+# plt.show()
+
+## Categorical Plot
+sns.catplot(x='quality',y='alcohol',data=df,kind='box')
+plt.show()
+
+## Scatter Plot -> for numerical
+sns.scatterplot(x='alcohol',y='pH',hue='quality',data=df)
+plt.show()
