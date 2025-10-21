@@ -53,4 +53,7 @@ print(df['Airline'].unique())
 from sklearn.preprocessing import OneHotEncoder
 
 encoder = OneHotEncoder()
-print(encoder.fit_transform(df[['Source', 'Additional_Info', 'Airline']]).toarry())
+pd.DataFrame(encoder.fit_transform(df[['Source', 'Additional_Info', 'Airline']]).toarry(),
+             columns=encoder.get_feature_names_out())
+
+print(df)
